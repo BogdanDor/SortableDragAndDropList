@@ -17,11 +17,15 @@ function onComplete() {
     items.forEach(function(item) {
         item.addEventListener('dragstart', handleDragStart, false);
         item.addEventListener('dragover', handleDragOver, false);
+        item.addEventListener('drop', handleDrop, false);
     });
 }
 
 function handleDragStart(event) {
     draggableElement = event.target;
+
+    //DnD don't work in firefox without setData
+    event.dataTransfer.setData('text/plain', 'anythingData');
 }
 
 function handleDragOver(event) {
@@ -33,4 +37,9 @@ function handleDragOver(event) {
     } else {
         event.target.insertAdjacentElement('afterend', draggableElement);
     }
+}
+
+function handleDrop(event) {
+    event.preventDefault();
+    event.stopPropagation();
 }
