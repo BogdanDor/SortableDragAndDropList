@@ -1,5 +1,5 @@
 .list {
-    width: 320px;
+    width: 310px;
     list-style-type: none;
 }
 
@@ -9,4 +9,12 @@
     border-width: 1px;
     border-style: solid;
     border-color: black;
+}
+
+.draggable {
+    visibility: hidden;
+}
+
+.ghost {
+    background-color: aqua;
 }
